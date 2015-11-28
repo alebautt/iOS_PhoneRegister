@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import <Fabric/Fabric.h>
+#import <DigitsKit/DigitsKit.h>
+
 
 @interface AppDelegate ()
 
@@ -16,6 +19,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [Fabric with:@[[Digits class]]];
     // Override point for customization after application launch.
     return YES;
 }
