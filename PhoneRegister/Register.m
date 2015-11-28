@@ -18,8 +18,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+      [[Digits sharedInstance] logOut];
     // Do any additional setup after loading the view, typically from a nib.
-    DGTAuthenticateButton *authButton;
+    /*DGTAuthenticateButton *authButton;
     authButton = [DGTAuthenticateButton buttonWithAuthenticationCompletion:^(DGTSession *session, NSError *error) {
         if (session.userID) {
             // TODO: associate the session userID with your user model
@@ -35,7 +36,7 @@
         }
     }];
     authButton.center = self.view.center;
-    [self.view addSubview:authButton];
+    [self.view addSubview:authButton];*/
 
 }
 
@@ -44,4 +45,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)btnLogin:(id)sender {
+    [[Digits sharedInstance] authenticateWithCompletion:^(DGTSession *session, NSError *error) {
+        self.lblPhone.text=[session phoneNumber];
+        [[Digits sharedInstance] logOut];
+        // Inspect session/error objects
+    }];
+}
 @end

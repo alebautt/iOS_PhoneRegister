@@ -10,6 +10,8 @@
 
 @interface Register : UIViewController
 
+- (IBAction)btnLogin:(id)sender;
 
+@property (strong, nonatomic) IBOutlet UILabel *lblPhone;
 @end
 
